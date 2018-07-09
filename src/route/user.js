@@ -1,9 +1,9 @@
 const Router = require('koa-router')
-const logic = require('../logic/sign')
+const logic = require('../logic/service/sign')
 
 let router = new Router()
 
 router.get('/signin', logic.signin)
-router.post('/signin', logic.signup)
+router.post('/signup', logic.signup)
 
 module.exports = router
