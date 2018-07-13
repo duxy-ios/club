@@ -34,16 +34,18 @@ module.exports = {
 //     return crypto.createHash('md5').update(str).digest('hex')
 // }
 
-function getFailResponse(ctx, message, code) {
+function getFailResponse(ctx, message, data, code) {
     return ctx.body = {
         code: code || 500,
-        message: message || "操作失败"
+        message: message || "操作失败",
+        data: data || null
     };
 }
 
-function getSuccessResponse(ctx, message, code) {
+function getSuccessResponse(ctx, message, data, code) {
     return ctx.body = {
         code: code || 200,
-        message: message || "操作成功"
+        message: message || "操作成功",
+        data: data || null
     };
 }

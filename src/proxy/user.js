@@ -7,6 +7,15 @@ exports.findUsersByNames = async function (names) {
     return User.find({loginname: {$in: names}});
 };
 
+exports.getUserByLoginName = async function (name) {
+    // return User.findOne({'loginname': new RegExp('^' + loginName + '$', "i")});
+    return User.findOne({loginname: name});
+}
+
+exports.getUserByMail = async function (email) {
+    return User.findOne({email: email});
+}
+
 exports.newAndSave = function (name, loginname, pass, email, avatar_url, active, callback) {
     let user = new User();
     user.name = loginname;
